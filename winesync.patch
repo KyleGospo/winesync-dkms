@@ -1,0 +1,11 @@
+--- winesync.c
++++ winesync.c
+@@ -10,7 +10,7 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/xarray.h>
+-#include <uapi/linux/winesync.h>
++#include "winesync.h"
+ 
+ #define WINESYNC_NAME	"winesync"
+ 

@@ -14,6 +14,9 @@ Source1:    https://repo.or.cz/linux/zf.git/blob_plain/%{winesync_commit}:/inclu
 Source2:    Makefile
 Source3:    dkms.conf
 
+# Include patch:
+Patch0:     winesync.patch
+
 Provides:   %{dkms_name}-dkms = %{version}
 Requires:   dkms
 
@@ -23,6 +26,7 @@ Implements Winesync/Fastsync, a reimplementation of the NT syncrhonization primi
 %prep
 %setup -q -T -c -n %{name}-%{version}
 cp %{SOURCE0} %{SOURCE1} %{SOURCE2} %{SOURCE3} .
+%patch0 -p0
 
 %build
 
