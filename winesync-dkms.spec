@@ -3,7 +3,7 @@
 %global winesync_commit 9ac10c6e711ec096274ecc676ae83a7cf2a1213f
 
 Name:       %{dkms_name}-dkms
-Version:    %{winesync_commit}
+Version:    {{{ git_dir_version }}}
 Release:    1%{?dist}
 Summary:    DKMS module to add Winesync/Fastsync
 License:    GPLv2+
