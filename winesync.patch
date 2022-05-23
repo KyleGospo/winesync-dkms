@@ -1,6 +1,6 @@
 --- winesync.c
 +++ winesync.c
-@@ -10,7 +10,7 @@
+@@ -10,10 +10,13 @@
  #include <linux/module.h>
  #include <linux/slab.h>
  #include <linux/xarray.h>
@@ -9,3 +9,9 @@
  
  #define WINESYNC_NAME	"winesync"
  
++/* winesync-dkms: Added so we don't need to modify /include/linux/miscdevice.h */
++#define WINESYNC_MINOR	243
++
+ enum winesync_type {
+ 	WINESYNC_TYPE_SEM,
+ 	WINESYNC_TYPE_MUTEX,
