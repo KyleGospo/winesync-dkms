@@ -45,7 +45,11 @@ cat > %{buildroot}%{_sysconfdir}/udev/rules.d/99-winesync.rules << EOF
 KERNEL=="winesync", MODE="0644"
 EOF
 
-%post
+%post -n %{name}
+if [ -S /run/udev/control ]; then
+    udevadm control --reload
+    udevadm trigger
+fi
 dkms add -m %{dkms_name} -v %{version} -q || :
 # Rebuild and make available for the currently running kernel
 dkms build -m %{dkms_name} -v %{version} -q || :
