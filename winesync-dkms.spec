@@ -8,6 +8,7 @@ Release:    1%{?dist}
 Summary:    DKMS module to add Winesync/Fastsync
 License:    GPLv2+
 URL:        https://github.com/KyleGospo/winesync-dkms
+BuildArch:  noarch
 
 Source0:    https://repo.or.cz/linux/zf.git/blob_plain/%{winesync_commit}:/drivers/misc/winesync.c
 Source1:    https://repo.or.cz/linux/zf.git/blob_plain/%{winesync_commit}:/include/uapi/linux/winesync.h
