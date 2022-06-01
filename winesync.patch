@@ -1,6 +1,6 @@
 --- winesync.c
 +++ winesync.c
-@@ -10,10 +10,13 @@
+@@ -10,7 +10,7 @@
  #include <linux/module.h>
  #include <linux/slab.h>
  #include <linux/xarray.h>
@@ -9,9 +9,17 @@
  
  #define WINESYNC_NAME	"winesync"
  
-+/* winesync-dkms: Added so we don't need to modify /include/linux/miscdevice.h */
-+#define WINESYNC_MINOR	243
-+
- enum winesync_type {
- 	WINESYNC_TYPE_SEM,
- 	WINESYNC_TYPE_MUTEX,
+@@ -1187,7 +1187,7 @@
+ };
+ 
+ static struct miscdevice winesync_misc = {
+-	.minor		= WINESYNC_MINOR,
++	.minor		= MISC_DYNAMIC_MINOR,
+ 	.name		= WINESYNC_NAME,
+ 	.fops		= &winesync_fops,
+ };
+@@ -1209,4 +1209,3 @@
+ MODULE_DESCRIPTION("Kernel driver for Wine synchronization primitives");
+ MODULE_LICENSE("GPL");
+ MODULE_ALIAS("devname:" WINESYNC_NAME);
+-MODULE_ALIAS_MISCDEV(WINESYNC_MINOR);
