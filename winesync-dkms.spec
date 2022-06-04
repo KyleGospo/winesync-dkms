@@ -6,7 +6,7 @@ Name:       %{dkms_name}-dkms
 Version:    {{{ git_dir_version }}}
 Release:    1%{?dist}
 Summary:    DKMS module to add Winesync/Fastsync
-License:    GPLv2+
+License:    GPLv2
 URL:        https://github.com/KyleGospo/winesync-dkms
 BuildArch:  noarch
 
