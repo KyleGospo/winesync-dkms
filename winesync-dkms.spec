@@ -14,6 +14,8 @@ Source0:    https://repo.or.cz/linux/zf.git/blob_plain/%{winesync_commit}:/drive
 Source1:    https://repo.or.cz/linux/zf.git/blob_plain/%{winesync_commit}:/include/uapi/linux/winesync.h
 Source2:    Makefile
 Source3:    dkms.conf
+Source4:    README.md
+Source5:    LICENSE
 
 # Include patch:
 Patch0:     winesync.patch
@@ -26,7 +28,7 @@ Implements Winesync/Fastsync, a reimplementation of the NT syncrhonization primi
 
 %prep
 %setup -q -T -c -n %{name}-%{version}
-cp %{SOURCE0} %{SOURCE1} %{SOURCE2} %{SOURCE3} .
+cp %{SOURCE0} %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE5} .
 %patch0 -p0
 
 %build
@@ -61,6 +63,8 @@ dkms install -m %{dkms_name} -v %{version} -q --force || :
 dkms remove -m %{dkms_name} -v %{version} -q --all || :
 
 %files
+%license LICENSE
+%doc README.md
 %{_usrsrc}/%{dkms_name}-%{version}
 %{_sysconfdir}/modules-load.d/winesync.conf
 %{_sysconfdir}/udev/rules.d/99-winesync.rules
