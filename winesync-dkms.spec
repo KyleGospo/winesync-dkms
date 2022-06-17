@@ -24,12 +24,12 @@ Provides:   %{dkms_name}-dkms = %{version}
 Requires:   dkms
 
 %description
-Implements Winesync/Fastsync, a reimplementation of the NT syncrhonization primitives used by Wine.
+Implements Winesync/Fastsync, a reimplementation of the NT synchronization primitives used by Wine.
 
 %prep
 %setup -q -T -c -n %{name}-%{version}
 cp %{SOURCE0} %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE5} .
-%patch0 -p0
+%patch0
 
 %build
 
