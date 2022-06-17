@@ -18,8 +18,9 @@
  	.name		= WINESYNC_NAME,
  	.fops		= &winesync_fops,
  };
-@@ -1209,4 +1209,3 @@
+@@ -1208,5 +1208,3 @@
+ MODULE_AUTHOR("Zebediah Figura");
  MODULE_DESCRIPTION("Kernel driver for Wine synchronization primitives");
  MODULE_LICENSE("GPL");
- MODULE_ALIAS("devname:" WINESYNC_NAME);
+-MODULE_ALIAS("devname:" WINESYNC_NAME);
 -MODULE_ALIAS_MISCDEV(WINESYNC_MINOR);
